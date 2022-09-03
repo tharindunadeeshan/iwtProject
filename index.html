@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home Page</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflure.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+		<!--google font-->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+   		
+
+
+
+<style>
+
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+ 
+  position: relative;
+  margin: 50;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+
+.container{
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+max-width: 1200px;
+flex-wrap: wrap;
+z-index: 1;
+}
+
+.container .card {
+	position: relative;
+	width: 280px;
+	height: 400px;
+	margin: 30px;
+	box-shadow: 20px 20px 50px rgb(0, 0, 0,0.5) ;	
+	border-radius: 15px;
+	background: rgb(255, 255, 255, 0.1);
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid rgb(255, 255, 255,0.5) ;
+	border-left: 1px solid rgb(255, 255, 255,0.5) ;
+	backdrop-filter: blur(5px);
+}
+
+
+
+
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 5vw;
+  padding: 0;
+  list-style-type: none;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;  
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {      
+  width: 100%;
+  height: auto;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}       
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #6A515E;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #D7BDCA;  
+}
+
+.card__status {
+  font-size: .8em;
+  color: #D7BDCA;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #D7BDCA;
+  font-family: "MockFlowFont";   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}    
+
+
+
+</style>
+</head>
+
+
+
+
+<body>
+	<nav>
+		
+		<label class="logo">StartLight Luxury Hotel</label>
+		<ul>
+			<li><a class="active" href="#">Home</a></li>
+			<li><a href="#">Rooms</a></li>
+			<li><a href="food_menu.html">Dining</a></li>
+			<li><a href="event_car.html">Event</a></li>
+			<li><a href="#">Offers</a></li>
+			<li><a href="insert_payment.html">Payment</a></li>
+			<li><a href="#">About Us</a></li>
+		</ul>
+	</nav>
+	<section>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="img/img_nature_wide.jpg" style="width:100%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="img/img_snow_wide.jpg" style="width:100%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="img/img_nature_wide.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+		
+	</section>
+<ul class="cards">
+  <li>
+    <a href="room_booking.html" class="card">
+      <img src="img/abc.png" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="img/rooms.jpg" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">Single Room</h3>            
+            
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>      
+  </li>
+  <li>
+    <a href="room_booking.html" class="card">
+      <img src="img/abc.png" class="card__image" alt="" />
+      <div class="card__overlay">        
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+          <img class="card__thumb" src="img/rooms.jpg" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">Luxury Room</h3>
+            
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="room_booking.html" class="card">
+      <img src="img/abc.png" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="img/rooms.jpg" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">Double Room</h3>
+            <span class="card__tagline">Lorem ipsum dolor sit amet consectetur</span>            
+            
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>
+  </li>
+    
+</ul>
+
+
+<ul class="cards">
+  <li>
+    <a href="room_booking.html" class="card">
+      <img src="img/abc.png" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="img/rooms.jpg" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">Deluxe</h3>            
+            
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>      
+  </li>
+  <li>
+    <a href="room_booking.html" class="card">
+      <img src="img/abc.png" class="card__image" alt="" />
+      <div class="card__overlay">        
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+          <img class="card__thumb" src="img/rooms.jpg" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">kim Cattrall</h3>
+            
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="room_booking.html" class="card">
+      <img src="img/abc.png" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="img/rooms.jpg" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">Jessica Parker</h3>
+            <span class="card__tagline">Lorem ipsum dolor sit amet consectetur</span>            
+            
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>
+  </li>
+    
+</ul>
+
+
+	</footer>
+     <!------------------------------------------------------------------------------>
+<div class="footer">
+			<div class="content">
+
+				<div class="footer_section about">
+					<h3><span>StarLight Luxury</span>.Hotel</h3>	
+					<ul class="h123">
+						<li><a href="">Home</a></li>
+						<li><a href="">Rooms</a></li>
+						<li><a href="">Dining</a></li>
+						<li><a href="">Event</a></li>
+						<li><a href="">Offers</a></li>
+						<li><a href="">Experience</a></li>
+						<li><a href="">About Us</a></li>
+					</ul>
+				</div>
+				<div class="footer_section follow_us">
+				<h6>Folow Us</h6>
+				<div class="soicial">
+					
+					<ul>
+						<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-google-plus-official" aria-hidden="true"></i></a>
+					</ul>
+				</div>
+					<div class="cotact">
+						<span><i class="fa fa-phone-square" aria-hidden="true"></i> &nbsp;011 1111 111</span>
+						<span><br><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp; starlightluxury@gmail.com</span>
+					</div>
+
+					</div>
+
+				<div class="footer_section apps">
+					<h6>About Us</h6>
+					<p>We specializes in creating beautiful and unique events.
+				 We provide a multitude of services ranging from Day-of to Full Service Event Coordination,
+				  and everything in between. Your coordinator will collaborate with you to 
+				produce an unforgettable event that will be tailored to you and your vision.
+				 During a complimentary initial consultation, you will have the opportunity to look through our portfolios, learn more about our services and ask any questions you may have.
+				 </p>
+				</div>
+			</div><!--content-->
+			<div class="footer_bottom">
+				&copy; StarLight Luxury.COM | Desigend By Tharindu  Nadeeshan
+			</div><!--footer_bottom-->
+		</div>
+
+
+
+
+
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html>
